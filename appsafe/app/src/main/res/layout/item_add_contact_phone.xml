@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_8"
+        android:paddingBottom="@dimen/padding_8">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3.3"
+            android:layout_marginRight="@dimen/margin_8">
+        <TextView
+                android:id="@+id/txt_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_18"
+                android:textColor="@color/text_color_black"
+                android:singleLine="true"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/txt_icon"
+        />
+        <TextView
+                android:id="@+id/txt_icon"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▼"
+        />
+    </RelativeLayout>
+
+    <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#79D3CECE"/>
+
+    <EditText
+            android:id="@+id/edt_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone"
+            android:layout_weight="2"
+            android:singleLine="true"
+            android:background="@null"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/padding_16"/>
+
+    <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/margin_8">
+        <ImageView
+                android:id="@+id/img_removePhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_border_ct_remove"
+                android:src="@drawable/ic_ct_delete"/>
+    </LinearLayout>
+
+
+</LinearLayout>

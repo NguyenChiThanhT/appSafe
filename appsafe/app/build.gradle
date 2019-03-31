@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "nguyenchithanh.com.ic_logo"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    //bug when convert to use AndroidX(happen when daggerversion > 2.17, so waitting fixing from google)
+    def daggerVersion = 2.16
+    def retrofitVersion = "2.5.0"
+    def androidXVersion = "2.0.0"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    //desgin xxml
+    implementation 'com.google.android.material:material:1.0.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // Dagger core
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+
+    // Dagger Android
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+
+    // if you are not using support library, include this instead
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    //rxjava2
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    //retrofic
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
+    //lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime:$androidXVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$androidXVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$androidXVersion"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$androidXVersion"
+
+    //Toast
+    implementation 'com.github.GrenderG:Toasty:1.4.0'
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //asyImage allows you to easily capture images from the gallery, camer
+    implementation 'com.github.jkwiecien:EasyImage:2.1.0'
+    //RuntimePermission can automatically check all of your needed permissions
+    implementation 'com.github.florent37:runtime-permission-kotlin:1.1.0'
+    //Glide load image
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+
+    //lib adapter
+    implementation 'net.idik:slimadapter:2.1.2'
+
+    //Shape Image View
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+
+    //lib_Listview_scroll
+//    implementation 'com.github.paolorotolo:expandableheightlistview:1.0.0'
+}
